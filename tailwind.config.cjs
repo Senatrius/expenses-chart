@@ -53,7 +53,8 @@ module.exports = {
       'card-value-m': [
         '1.875rem',
         {
-          fontWeight: 700
+          fontWeight: 700,
+          lineHeight: '1'
         }
       ],
       'card-trend-m': [
@@ -95,7 +96,8 @@ module.exports = {
       'card-value-d': [
         '3rem',
         {
-          fontWeight: 700
+          fontWeight: 700,
+          lineHeight: '1'
         }
       ],
       'card-trend-d': [

@@ -2,8 +2,8 @@ export const Header = () => {
   return (
     <header className='group mb-4 flex w-full items-center justify-between gap-1 rounded-lg bg-primary-red p-5 text-component md:mb-6 md:py-7 md:px-8'>
       <div className='flex flex-col items-start'>
-        <p className='text-header-label-m'>My balance</p>
-        <p className='text-header-value-m'>$921.48</p>
+        <p className='text-header-label-m md:text-header-label-d'>My balance</p>
+        <p className='text-header-value-m md:text-header-value-d'>$921.48</p>
       </div>
       <div className='mr-1 flex items-center gap-2 md:gap-0'>
         <button
