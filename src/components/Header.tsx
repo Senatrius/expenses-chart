@@ -19,10 +19,11 @@ export const Header = ({
       </div>
       <div className='mr-1 flex items-center'>
         <button
+          aria-label='move back one step'
           disabled={step < 2 || !customMode}
           type='button'
           onClick={() => setStep(step - 1)}
-          className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-component transition-transform duration-75 ${
+          className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-component transition-transform duration-75 md:h-12 md:w-12 ${
             customMode ? '-translate-x-2' : 'translate-x-1/2'
           }`}>
           <svg
@@ -39,10 +40,11 @@ export const Header = ({
           </svg>
         </button>
         <button
+          aria-label='move forwards one step'
           type='button'
           disabled={step + 7 >= dataLength || !customMode}
           onClick={() => setStep(step + 1)}
-          className='flex h-10 w-10 items-center justify-center rounded-full border-2 border-text bg-text'>
+          className='flex h-10 w-10 items-center justify-center rounded-full border-2 border-text bg-text md:h-12 md:w-12'>
           <svg
             className={`${customMode ? 'inline' : 'hidden'}`}
             width='18'

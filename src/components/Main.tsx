@@ -60,9 +60,9 @@ export const Main = ({
     <main className='w-full rounded-lg bg-component p-5 md:mb-6 md:rounded-2xl md:py-7 md:px-8'>
       {!customMode ? (
         <>
-          <h2 className='mb-4 text-card-title-m text-text md:mb-2 md:text-card-title-d'>
+          <h1 className='mb-4 text-card-title-m text-text md:mb-2 md:text-card-title-d'>
             Spending - Last 7 days
-          </h2>
+          </h1>
           <Chart
             data={demo}
             step={0}
@@ -94,13 +94,13 @@ export const Main = ({
         </div>
       ) : (
         <>
-          <h2 className='mb-4 flex items-center justify-between text-card-title-m text-text md:mb-2 md:text-card-title-d'>
+          <h1 className='mb-4 flex items-center justify-between text-card-title-m text-text md:mb-2 md:text-card-title-d'>
             {fileName.replace('.csv', '').toUpperCase()}{' '}
             <p className='text-card-label-m text-label md:text-card-label-d'>
               {`${step} to ${step + 6}`}
               <span className='text-text'>{` / ${dataLength - 1}`}</span>
             </p>
-          </h2>
+          </h1>
           <Chart
             data={fileContents}
             step={step}
