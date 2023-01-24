@@ -12,8 +12,8 @@ function App() {
     <div className='mx-auto flex min-h-full w-[91.5%] flex-col items-center justify-center py-[4.1875rem] md:w-[60%] lg:w-[45%] xl:w-[37.5%]'>
       <button
         onClick={() => setCustomMode(!customMode)}
-        className='mb-1 self-end bg-primary-red p-1'>
-        Switch
+        className='mb-1 self-end rounded-sm bg-primary-red py-1 px-2 text-header-label-m text-background md:text-header-label-d'>
+        {customMode ? 'Switch to Demo Mode' : 'Switch to Custom Mode'}
       </button>
       <Header
         customMode={customMode}

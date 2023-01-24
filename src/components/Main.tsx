@@ -75,7 +75,7 @@ export const Main = ({
         </>
       ) : !fileContents ? (
         <div
-          className='cursor-pointer m-0 flex h-[9.375rem] w-full items-center justify-center rounded-md border-2 border-dashed border-label p-3 text-center md:h-[15rem]'
+          className='m-0 flex min-h-[9.375rem] w-full cursor-pointer items-center justify-center rounded-md border-2 border-dashed border-label p-3 text-center md:min-h-[15rem]'
           {...getRootProps()}>
           <input {...getInputProps()} />
           {isDragActive ? (
@@ -85,7 +85,10 @@ export const Main = ({
           ) : (
             <p className='text-card-chart-m text-label md:text-card-chart-d'>
               Drag and drop a file here, or click to select a file manually.
-              Accepted file format: [*.csv]. Accepted file structure, two columns: [label(string),value(number)]
+              <br />
+              Accepted file format: [*.csv]
+              <br />
+              Accepted file structure: [label(str) ,value(num)]
             </p>
           )}
         </div>

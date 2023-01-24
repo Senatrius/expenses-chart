@@ -17,13 +17,13 @@ export const Header = ({
         <p className='text-header-label-m md:text-header-label-d'>My balance</p>
         <p className='text-header-value-m md:text-header-value-d'>$921.48</p>
       </div>
-      <div className='mr-1 flex items-center gap-2 md:gap-0'>
+      <div className='mr-1 flex items-center'>
         <button
           disabled={step < 2 || !customMode}
           type='button'
           onClick={() => setStep(step - 1)}
           className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-component transition-transform duration-75 ${
-            customMode ? 'md:-translate-x-2' : 'md:translate-x-1/2'
+            customMode ? '-translate-x-2' : 'translate-x-1/2'
           }`}>
           <svg
             className={`${customMode ? 'inline' : 'hidden'}`}
