@@ -1,4 +1,10 @@
-export const Summary = () => {
+export const Summary = ({
+  total,
+  trend
+}: {
+  total: number;
+  trend: number | string;
+}) => {
   return (
     <div className='flex items-end justify-between'>
       <div>
@@ -6,11 +12,13 @@ export const Summary = () => {
           Total this month
         </p>
         <p className='text-card-value-m text-text md:text-card-value-d'>
-          $478.33
+          ${total}
         </p>
       </div>
       <div className='text-right'>
-        <p className='text-card-trend-m text-text md:text-card-trend-d'>2.4%</p>
+        <p className='text-card-trend-m text-text md:text-card-trend-d'>
+          {trend}%
+        </p>
         <p className='text-card-label-m text-label md:text-card-label-d'>
           from last month
         </p>

@@ -1,0 +1,30 @@
+[
+  {
+    "label": "mon",
+    "value": 17.45
+  },
+  {
+    "label": "tue",
+    "value": 34.91
+  },
+  {
+    "label": "wed",
+    "value": 52.36
+  },
+  {
+    "label": "thu",
+    "value": 31.07
+  },
+  {
+    "label": "fri",
+    "value": 23.39
+  },
+  {
+    "label": "sat",
+    "value": 43.28
+  },
+  {
+    "label": "sun",
+    "value": 25.48
+  }
+]

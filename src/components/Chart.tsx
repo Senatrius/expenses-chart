@@ -1,9 +1,10 @@
 import React, { useState, MouseEvent } from 'react';
 import { Tooltip } from './Tooltip';
 
+
 interface IChartData {
-  day: string;
-  amount: number;
+  label: string | number;
+  value: number;
 }
 
 interface ITooltip {
@@ -13,14 +14,16 @@ interface ITooltip {
   value: number;
 }
 
-export const Chart = ({ data }: { data: IChartData[] }) => {
+export const Chart = ({ data, step }: { data: IChartData[], step: number }) => {
   const [tooltip, setTooltip] = useState<ITooltip>({
     visible: false,
     xPos: 0,
     yPos: 0,
     value: 0
   });
-  const highestAmount = Math.max(...data.map(item => item.amount));
+
+  const chartSection = data.slice(0 + step, 7 + step);
+  const highestValue = Math.max(...chartSection.map(item => item.value));
 
   const showTooltip = (e: MouseEvent<HTMLDivElement>, col: IChartData) => {
     const t = e.target as HTMLDivElement;
@@ -33,37 +36,44 @@ export const Chart = ({ data }: { data: IChartData[] }) => {
       visible: true,
       xPos: barCenter,
       yPos: barTop,
-      value: col.amount
+      value: col.value
     }));
   };
 
   const hideTooltip = () => {
     setTooltip(prev => ({
       ...prev,
-      visible: false,
+      visible: false
     }));
-  }
+  };
 
   return (
-    <div className='mt-12 flex w-full items-end justify-between gap-3 md:gap-4'>
-      <Tooltip bottom={tooltip.yPos} left={tooltip.xPos} value={tooltip.value} visible={tooltip.visible}/>
-      {data.map((col, idx) => (
+    <div className='mt-12 flex w-full justify-between gap-3 md:gap-4'>
+      <Tooltip
+        bottom={tooltip.yPos}
+        left={tooltip.xPos}
+        value={tooltip.value}
+        visible={tooltip.visible}
+      />
+      {chartSection.map((col, idx) => (
         <div
           key={idx}
           className='flex w-full flex-col items-center'>
           <div className='relative h-[9.375rem] w-full'>
             <div
-              onMouseEnter={(e: MouseEvent<HTMLDivElement>) => showTooltip(e, col)}
+              onMouseEnter={(e: MouseEvent<HTMLDivElement>) =>
+                showTooltip(e, col)
+              }
               onMouseLeave={hideTooltip}
-              style={{ height: (col.amount / highestAmount) * 100 + '%' }}
+              style={{ height: (col.value / highestValue) * 100 + '%' }}
               className={`absolute bottom-0 left-0 right-0 rounded-sm hover:cursor-pointer md:rounded-md ${
-                col.amount === highestAmount
+                col.value === highestValue
                   ? 'bg-primary-blue hover:bg-hover-blue'
                   : 'bg-primary-red hover:bg-hover-red'
               }`}></div>
           </div>
-          <span className='md:card-chart-d mt-3 text-card-chart-m text-label md:mt-2'>
-            {col.day}
+          <span className='md:card-chart-d mt-3 break-all text-card-chart-m text-label md:mt-2'>
+            {col.label}
           </span>
         </div>
       ))}
