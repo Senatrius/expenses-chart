@@ -42,7 +42,7 @@ export const Main = ({
         );
 
         setFileContents(jsonData);
-        setStep(0);
+        setStep(1);
         setDataLength(jsonData.length);
         setTotalValue(parseFloat(totalValue.toFixed(2)));
       }
@@ -57,7 +57,7 @@ export const Main = ({
   });
 
   return (
-    <main className='w-full rounded-lg bg-component p-5 md:mb-6 md:py-7 md:px-8'>
+    <main className='w-full rounded-lg bg-component p-5 md:mb-6 md:rounded-2xl md:py-7 md:px-8'>
       {!customMode ? (
         <>
           <h2 className='mb-4 text-card-title-m text-text md:mb-2 md:text-card-title-d'>
@@ -98,7 +98,7 @@ export const Main = ({
             {fileName.replace('.csv', '').toUpperCase()}{' '}
             <p className='text-card-label-m text-label md:text-card-label-d'>
               {`${step} to ${step + 6}`}
-              <span className='text-text'>{` / ${dataLength}`}</span>
+              <span className='text-text'>{` / ${dataLength - 1}`}</span>
             </p>
           </h2>
           <Chart

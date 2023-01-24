@@ -6,7 +6,7 @@ export const Summary = ({
   trend: number | string;
 }) => {
   return (
-    <div className='flex items-end justify-between'>
+    <div className='flex items-end justify-between pb-2'>
       <div>
         <p className='mb-2 text-card-label-m text-label md:text-card-label-d'>
           Total this month
