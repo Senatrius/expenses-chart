@@ -23,7 +23,7 @@ export const Chart = ({ data, step }: { data: IChartData[], step: number }) => {
   });
 
   const chartSection = data.slice(0 + step, 7 + step);
-  const highestValue = Math.max(...chartSection.map(item => item.value));
+  const highestValue = Math.max(...data.map(item => item.value));
 
   const showTooltip = (e: MouseEvent<HTMLDivElement>, col: IChartData) => {
     const t = e.target as HTMLDivElement;
@@ -66,7 +66,7 @@ export const Chart = ({ data, step }: { data: IChartData[], step: number }) => {
               }
               onMouseLeave={hideTooltip}
               style={{ height: (col.value / highestValue) * 100 + '%' }}
-              className={`absolute bottom-0 left-0 right-0 rounded-sm hover:cursor-pointer md:rounded-md ${
+              className={`absolute bottom-0 left-0 right-0 min-h-[.5rem] rounded-sm hover:cursor-pointer md:rounded-md ${
                 col.value === highestValue
                   ? 'bg-primary-blue hover:bg-hover-blue'
                   : 'bg-primary-red hover:bg-hover-red'
