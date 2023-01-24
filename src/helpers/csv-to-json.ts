@@ -13,7 +13,6 @@ export const csvToJson = (data: string) => {
 
     const [rowDate, rowValue] = rows[i].split(',');
 
-    console.log(rowDate, rowValue);
     rowObject['label'] = rowDate;
     rowObject['value'] = parseFloat(rowValue);
 
